@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<ul>
+    @foreach(string item in ViewData["Countries"] as string[])
+    {
+        <li>@item</li>
+    }
+</ul>
+
