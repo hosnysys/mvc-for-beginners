@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BusinessLayer;
 
-namespace MVCDemo_11.Controllers
+namespace MVCDemo.Controllers
 {
     public class EmployeeController : Controller
     {
