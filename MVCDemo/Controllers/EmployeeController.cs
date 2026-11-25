@@ -25,5 +25,27 @@ namespace MVCDemo.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Create(FormCollection formCollection)
+        {
+            foreach (string key in formCollection.Keys)
+            {
+                Response.Write("<b>Key:</b> " + key + " <b>Value:</b> " + formCollection[key]);
+                Response.Write("<br>");
+            }
+
+            EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+
+            Employee employee = new Employee();
+            employee.Name = formCollection["Name"];
+            employee.Gender = formCollection["Gender"];
+            employee.City = formCollection["City"];
+            employee.DateOfBirth = Convert.ToDateTime(formCollection["DateOfBirth"]);
+
+            employeeBusinessLayer.AddEmployee(employee);
+
+            return RedirectToAction("Index");
+        }
     }
 }
