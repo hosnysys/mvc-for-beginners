@@ -21,16 +21,21 @@ namespace MVCDemo.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create()
+        [ActionName("Create")]
+        public ActionResult Create_Get()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(Employee employee)
+        [ActionName("Create")]
+        public ActionResult Create_Post()
         {
 
             EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+
+            Employee employee = new Employee();
+            UpdateModel(employee);
 
             employeeBusinessLayer.AddEmployee(employee);
 
