@@ -27,16 +27,10 @@ namespace MVCDemo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(string name, string gender, string city, DateTime dateOfBirth)
+        public ActionResult Create(Employee employee)
         {
 
             EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
-
-            Employee employee = new Employee();
-            employee.Name = name;
-            employee.Gender = gender;
-            employee.City = city;
-            employee.DateOfBirth = dateOfBirth;
 
             employeeBusinessLayer.AddEmployee(employee);
 
