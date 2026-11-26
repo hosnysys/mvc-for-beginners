@@ -34,12 +34,18 @@ namespace MVCDemo.Controllers
 
             EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
 
-            Employee employee = new Employee();
-            UpdateModel(employee);
+            if(ModelState.IsValid)
+            {
+                Employee employee = new Employee();
+                UpdateModel(employee);
 
-            employeeBusinessLayer.AddEmployee(employee);
+                employeeBusinessLayer.AddEmployee(employee);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+
+            return View();
+
         }
     }
 }
